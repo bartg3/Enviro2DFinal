@@ -4,10 +4,26 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    private Rigidbody2D rb;
+    public float speed;
+    public float jumpForce;
+    private float moveInput;
+
+    private bool facingRight = true;
+    private bool isGrounded;
+    public Transform feetPos;
+    public float checkRadius;
+    public LayerMask whatIsGround;
+
+    private float jumpTimeCounter;
+    public float jumpTime;
+    private bool IsJumping;
+
     private Animator anim;
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         
     }
@@ -15,6 +31,34 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+
+        if(isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            IsJumping = true;
+            jumpTimeCounter = jumpTime;
+            rb.velocity = Vector2.up * jumpForce;
+        }
+
+        if(Input.GetKey(KeyCode.Space) && IsJumping == true)
+        {
+            if(jumpTimeCounter > 0)
+            {
+                rb.velocity = Vector2.up * jumpForce;
+                jumpTimeCounter -= Time.deltaTime;
+            }
+            else
+            {
+                IsJumping = false;
+
+            }
+        }
+
+        if(Input.GetKeyUp(KeyCode.Space))
+        {
+            IsJumping = false;
+        }
+
         if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow))
         {
             anim.SetBool("isRunning", true);
@@ -30,5 +74,29 @@ public class PlayerController : MonoBehaviour
             anim.SetTrigger("jumping");
         }
         
+    }
+
+    void FixedUpdate()
+    {
+        moveInput = Input.GetAxisRaw("Horizontal");
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+
+        if(facingRight == false && moveInput > 0)
+        {
+            Flip();
+        }
+
+        else if(facingRight == true && moveInput < 0)
+        {
+            Flip();
+        }
+    }
+
+    void Flip()
+    {
+        facingRight = !facingRight;
+        Vector3 Scaler = transform.localScale;
+        Scaler.x *= -1;
+        transform.localScale = Scaler;
     }
 }
