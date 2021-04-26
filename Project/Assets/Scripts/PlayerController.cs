@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpForce;
     private float moveInput;
 
-    private bool facingRight = true;
+    private bool m_FacingRight = true;
     private bool isGrounded;
     public Transform feetPos;
     public float checkRadius;
@@ -81,12 +81,12 @@ public class PlayerController : MonoBehaviour
         moveInput = Input.GetAxisRaw("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
 
-        if(facingRight == false && moveInput > 0)
+        if(m_FacingRight == false && moveInput > 0)
         {
             Flip();
         }
 
-        else if(facingRight == true && moveInput < 0)
+        else if(m_FacingRight == true && moveInput < 0)
         {
             Flip();
         }
@@ -94,9 +94,8 @@ public class PlayerController : MonoBehaviour
 
     void Flip()
     {
-        facingRight = !facingRight;
-        Vector3 Scaler = transform.localScale;
-        Scaler.x *= -1;
-        transform.localScale = Scaler;
+        m_FacingRight = !m_FacingRight;
+        
+        transform.Rotate(0f, 180f, 0f);
     }
 }
