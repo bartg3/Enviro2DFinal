@@ -19,7 +19,7 @@ public class bullets : MonoBehaviour
         Enemy enemy = hitInfo.GetComponent<Enemy>();
         if (enemy != null)
         {
-            enemy.TakeDamage();
+            enemy.TakeDamage(40);
         }
         Destroy(gameObject);
     }
