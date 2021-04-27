@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class bullets : MonoBehaviour
+public class bullets1 : MonoBehaviour
 {
     public float speed = 20f;
     public int damage = 40;
@@ -23,6 +23,4 @@ public class bullets : MonoBehaviour
         }
         Destroy(gameObject);
     }
-
-    
 }

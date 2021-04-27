@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class enemy : MonoBehaviour
 {
+    // Start is called before the first frame update
     public int health = 100;
 
     
@@ -16,6 +17,4 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-  
 }
