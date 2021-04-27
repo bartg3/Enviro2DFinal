@@ -42,7 +42,8 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Space) && IsJumping == true)
         {
-            if(jumpTimeCounter > 0)
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Ejimas1);
+            if (jumpTimeCounter > 0)
             {
                 rb.velocity = Vector2.up * jumpForce;
                 jumpTimeCounter -= Time.deltaTime;
