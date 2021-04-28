@@ -1,12 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    public int maxhealth = 100;
-    
+    public int maxHealth = 100;
     private Rigidbody2D rb;
     public float speed;
     public float jumpForce;
@@ -21,11 +19,11 @@ public class PlayerController : MonoBehaviour
     private float jumpTimeCounter;
     public float jumpTime;
     private bool IsJumping;
-    private int scoreValue = 0;
 
     private Animator anim;
     Rigidbody2D rigidbody2d;
     Vector2 lookDirection = new Vector2(1, 0);
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +31,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
 
-        
+        //cHealth = maxHealth;        
 
     }
 
@@ -97,10 +95,9 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (maxhealth <=0)
+        if (maxHealth <=0)
         {
             Destroy(gameObject);
-            SceneManager.LoadScene(sceneName: "Game Over");
         }
 
     }
@@ -132,7 +129,7 @@ public class PlayerController : MonoBehaviour
     {
         if(col.gameObject.tag.Equals("Enemy"))
         {
-            maxhealth = maxhealth - 50;
+            
             Destroy(gameObject);
         }
     }
