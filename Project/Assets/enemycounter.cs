@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class enemycounter : MonoBehaviour
 {
     public static int scoreValue = 0;
@@ -18,6 +19,10 @@ public class enemycounter : MonoBehaviour
     {
         score.text = "Enemies Killed: " + scoreValue;
 
-        
+        if (scoreValue >= 5)
+        {
+            Destroy(this);
+            SceneManager.LoadScene(sceneName: "Win");
+        }
     }
 }
