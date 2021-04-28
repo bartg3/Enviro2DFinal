@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public int maxHealth = 100;
+    int currentHealth;
     private Rigidbody2D rb;
     public float speed;
     public float jumpForce;
@@ -31,7 +33,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
 
-        //cHealth = maxHealth;        
+        currentHealth = maxHealth;        
 
     }
 
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour
         if (maxHealth <=0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(sceneName: "Lose");
         }
 
     }
@@ -134,8 +137,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //public void ChangeHealth(int amount)
-    //{
-        //currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxhealth);
-    //}
+    public void ChangeHealth(int amount)
+    {
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+    }
 }
