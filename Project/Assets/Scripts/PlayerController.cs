@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    public string maxHealthValue;
+    public Text textElement;
     public int maxHealth = 100;
     int currentHealth;
     private Rigidbody2D rb;
@@ -32,8 +35,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
+        textElement.text = maxHealthValue;
 
-        currentHealth = maxHealth;        
+        //currentHealth = maxHealth;        
 
     }
 
@@ -41,6 +45,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+        
 
         if(isGrounded == true && Input.GetKeyDown(KeyCode.Space))
         {
@@ -96,10 +101,11 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    
 
         if (maxHealth <=0)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             SceneManager.LoadScene(sceneName: "Lose");
         }
 
@@ -132,9 +138,11 @@ public class PlayerController : MonoBehaviour
     {
         if(col.gameObject.tag.Equals("Enemy"))
         {
+            maxHealth = maxHealth - 50;
             
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
+        
     }
 
     public void ChangeHealth(int amount)
