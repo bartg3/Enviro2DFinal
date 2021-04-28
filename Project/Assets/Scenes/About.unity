@@ -1035,7 +1035,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 36
+    m_FontSize: 32
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -1052,7 +1052,13 @@ MonoBehaviour:
     Press right arrow key to move Right
 
 
-    Press Spacebar to use jetpack'
+    Press Spacebar to use jetpack
+
+
+    Press Z to fire
+
+
+    Press X to speak to NPC'
 --- !u!222 &1987648591
 CanvasRenderer:
   m_ObjectHideFlags: 0
