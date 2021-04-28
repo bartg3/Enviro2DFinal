@@ -6,8 +6,10 @@ public class Weapon1 : MonoBehaviour
 {
     public Transform firePoint;
     public GameObject bulletPrefab;
+    public AudioClip shotgunClip;
+    public AudioSource audioSource;
     // Start is called before the first frame update
-  
+
 
     // Update is called once per frame
     void Update()
@@ -15,6 +17,8 @@ public class Weapon1 : MonoBehaviour
         if(Input.GetButtonDown("Fire1"))
         {
             Shoot();
+            audioSource.clip = shotgunClip;
+            audioSource.Play();
         }
         
     }

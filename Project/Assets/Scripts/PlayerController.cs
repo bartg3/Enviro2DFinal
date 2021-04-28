@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private float jumpTimeCounter;
     public float jumpTime;
     private bool IsJumping;
+    private int scoreValue = 0;
 
     private Animator anim;
     Rigidbody2D rigidbody2d;
@@ -98,6 +100,7 @@ public class PlayerController : MonoBehaviour
         if (maxhealth <=0)
         {
             Destroy(gameObject);
+            SceneManager.LoadScene(sceneName: "Game Over");
         }
 
     }

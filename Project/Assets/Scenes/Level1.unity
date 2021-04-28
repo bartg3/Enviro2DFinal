@@ -963,7 +963,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.799999, y: -0.00000047683716, z: -10}
+  m_LocalPosition: {x: -25.8, y: -1.8600005, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -19703,7 +19703,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800988850}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -19711,10 +19711,10 @@ RectTransform:
   m_Father: {fileID: 927079539}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.214, y: 8.63}
-  m_SizeDelta: {x: 8.71, y: 5.842}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &800988852
 MonoBehaviour:
@@ -20071,14 +20071,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927079536}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.8, y: -1.88, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 800988851}
   m_Father: {fileID: 0}
   m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &927079540
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20140,7 +20140,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.84689, y: 1}
+    m_SensorSize: {x: 1.8720137, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -20157,7 +20157,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992014869}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.799999, y: -0.00000047683716, z: -10}
+  m_LocalPosition: {x: -25.8, y: -1.8600005, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 169842962}
@@ -20415,7 +20415,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1057613812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.8, y: 0, z: 0}
+  m_LocalPosition: {x: -25.8, y: -1.86, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1513417377}
@@ -20479,6 +20479,8 @@ MonoBehaviour:
   firePoint: {fileID: 105930962}
   bulletPrefab: {fileID: 693883651213535760, guid: a0cc15c360952b245a2e667f3283972f,
     type: 3}
+  shotgunClip: {fileID: 8300000, guid: 4fc8fabbfb30e4e44a927359659a471b, type: 3}
+  audioSource: {fileID: 1057613820}
 --- !u!82 &1057613820
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20876,8 +20878,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.62, y: 1.58}
-  m_SizeDelta: {x: 6.066, y: 2.27}
+  m_AnchoredPosition: {x: 0.62, y: 0.396}
+  m_SizeDelta: {x: 6.066, y: 4.638}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1269384564
 MonoBehaviour:
@@ -20899,7 +20901,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: Defeat the boss, and restore the planet!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 0}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -20942,7 +20944,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 21
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -21715,7 +21717,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.63, y: -0.00000011921}
+  m_AnchoredPosition: {x: -0.42, y: 8.52}
   m_SizeDelta: {x: 10.55, y: 9.154}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1283616082
