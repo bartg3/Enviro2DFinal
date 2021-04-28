@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public int maxhealth = 200;
+    
     private Rigidbody2D rb;
     public float speed;
     public float jumpForce;
@@ -28,6 +30,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         rigidbody2d = GetComponent<Rigidbody2D>();
+
+        
 
     }
 
@@ -91,6 +95,11 @@ public class PlayerController : MonoBehaviour
             }
         }
 
+        if (maxhealth <=0)
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void FixedUpdate()
@@ -115,4 +124,9 @@ public class PlayerController : MonoBehaviour
 
         transform.Rotate(0f, 180f, 0f);
     }
+
+    //public void ChangeHealth(int amount)
+    //{
+        //currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxhealth);
+    //}
 }
