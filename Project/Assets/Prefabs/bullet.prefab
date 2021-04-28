@@ -135,3 +135,5 @@ MonoBehaviour:
   speed: 20
   damage: 25
   rb: {fileID: 3620414279642272153}
+  burstEffect: {fileID: 8633918793397392605, guid: d6b65edebfc3a034d8bfcdf474c5e016,
+    type: 3}

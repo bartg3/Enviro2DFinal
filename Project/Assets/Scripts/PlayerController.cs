@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public int maxhealth = 200;
+    public int maxhealth = 100;
     
     private Rigidbody2D rb;
     public float speed;
@@ -123,6 +123,15 @@ public class PlayerController : MonoBehaviour
         m_FacingRight = !m_FacingRight;
 
         transform.Rotate(0f, 180f, 0f);
+    }
+
+    void OnCollisionEnter2D( Collision2D col)
+    {
+        if(col.gameObject.tag.Equals("Enemy"))
+        {
+            maxhealth = maxhealth - 50;
+            Destroy(gameObject);
+        }
     }
 
     //public void ChangeHealth(int amount)
