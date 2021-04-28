@@ -20,12 +20,15 @@ public class PlayerController : MonoBehaviour
     private bool IsJumping;
 
     private Animator anim;
+    Rigidbody2D rigidbody2d;
+    Vector2 lookDirection = new Vector2(1, 0);
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        
+        rigidbody2d = GetComponent<Rigidbody2D>();
+
     }
 
     // Update is called once per frame
@@ -42,6 +45,7 @@ public class PlayerController : MonoBehaviour
 
         if(Input.GetKey(KeyCode.Space) && IsJumping == true)
         {
+            SfxManager.sfxInstance.Audio.PlayOneShot(SfxManager.sfxInstance.Ejimas1);
             if(jumpTimeCounter > 0)
             {
                 rb.velocity = Vector2.up * jumpForce;
@@ -73,7 +77,20 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("jumping");
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            RaycastHit2D hit = Physics2D.Raycast(rigidbody2d.position + Vector2.up * 0.2f, lookDirection, 5f, LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                NonPlayerCharacter character = hit.collider.GetComponent<NonPlayerCharacter>();
+                if (character != null)
+                {
+                    character.DisplayDialog();
+                }
+            }
+        }
+
     }
 
     void FixedUpdate()
